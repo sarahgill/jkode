@@ -8,9 +8,11 @@ import com.troystopera.jkode.exec.Executor
 import com.troystopera.jkode.exec.MutableOutput
 import com.troystopera.jkode.exec.Scope
 import com.troystopera.jkode.vars.BooleanVar
+import com.troystopera.jkode.statements.Assignment
 
 class WhileLoop(
-        var condition: Evaluation<BooleanVar>
+        var condition: Evaluation<BooleanVar>,
+        var assignment: Assignment
 ) : CodeBlock() {
 
     override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): CtrlStmt<*>? {
