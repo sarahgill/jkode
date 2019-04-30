@@ -19,8 +19,8 @@ class Array2DAccess<T : JVar<*>>(
 
     override fun onExecute(scope: Scope, executor: Executor, output: MutableOutput?): T {
         val arrVar = array.execute(scope, executor, output)
-        val rowIndex = rowIndex.execute(scope, executor, output).value  // idk whats happening here
-        val colIndex = colIndex.execute(scope, executor, output).value  // nope
+        val rowIndex = rowIndex.execute(scope, executor, output).value
+        val colIndex = colIndex.execute(scope, executor, output).value
         return if (rowIndex < arrVar.value.size) arrVar.value[rowIndex][colIndex] ?: varType.NULL
         else throw ArrayIndexException(arrVar.value.size, rowIndex)
     }
